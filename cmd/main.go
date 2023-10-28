@@ -34,7 +34,7 @@ const tableName = "LambdaInGoUser"
 func handler(req events.APIGatewayProxyRequest) *events.APIGatewayProxyResponse {
 	switch req.HTTPMethod {
 	case "GET":
-		return handlers.GetUser(req, tableName, dynaClient)
+		return handlers.GetUser(req, tableName, dynaClient) //this function call will check functions inside the handler package
 	case "POST":
 		return handlers.CreateUser(req, tableName, dynaClient)
 	case "PUT":
