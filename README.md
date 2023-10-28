@@ -1,4 +1,12 @@
 # go-serverless-api-gateway-dynamodb
 This repository contains a serverless web API project implemented in Golang, utilizing AWS API Gateway for endpoint management and DynamoDB for data storage. 
 
+build folder -> zip file
+cmd -> main.go
+pkg -> all packages
+handlers -> to handle the apis
+user -> 
+validators -> check if email is valid or not
+
+
 v1.0.1
