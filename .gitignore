@@ -48,4 +48,4 @@ logs/
 user/
 
 # Build files
-.zip
+*.zip
