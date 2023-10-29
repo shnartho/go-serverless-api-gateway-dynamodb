@@ -27,9 +27,6 @@ logs/
 *.cover
 .coverprofile
 
-# Build artifacts
-build/
-
 # IDE-specific files (Visual Studio Code, GoLand, etc.)
 .idea/
 .vscode/
