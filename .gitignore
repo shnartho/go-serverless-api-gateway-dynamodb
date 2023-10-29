@@ -1,0 +1,51 @@
+# Compiled Object files, Static and Dynamic libraries (Shared Object Files)
+*.o
+*.a
+*.so
+
+# Compiled Go binary
+*.exe
+*.exe~
+*.dll
+*.out
+*.app
+
+# Cache and Logs
+.cache/
+logs/
+*.log
+
+# Temporary files
+.temp/
+*.tmp
+
+# Binary dependencies (go mod vendor directory)
+/vendor/
+
+# Testing
+/report/
+*.cover
+.coverprofile
+
+# Build artifacts
+build/
+
+# IDE-specific files (Visual Studio Code, GoLand, etc.)
+.idea/
+.vscode/
+
+# macOS-specific files
+.DS_Store
+
+# Ignore .env files containing sensitive information
+.env
+
+# Ignore configuration files
+*.yml
+*.json
+
+# Ignore database files
+*.db
+
+# Ignore user-specific files
+user/
