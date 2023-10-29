@@ -43,6 +43,5 @@ The program is structured as follows:
 
 This structure outlines the flow of function calls in the program, starting from `main.go` and branching out to the functions in the `handlers`, `user`, `validators`, and `apiResponse` packages.
 
-
-
 v1.0.1
+![golang](https://fgp.dev/static/media/GolangDevelopmentBanner.aba7a1d6.jpg)
