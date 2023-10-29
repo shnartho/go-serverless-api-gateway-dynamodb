@@ -46,3 +46,6 @@ logs/
 
 # Ignore user-specific files
 user/
+
+# Build files
+.zip
