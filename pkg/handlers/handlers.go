@@ -5,7 +5,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbifac"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 	"github.com/shnartho/go-serverless-api-gateway-dynamodb/pkg/user"
 )
 
@@ -16,9 +16,9 @@ type ErrorBody struct {
 }
 
 // this functions will call functions inside the user.go which talks to the db
-func GetUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbifac.DynamoDBAPI) (*events.APIGatewayProxyResponse, error) {
+func GetUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (*events.APIGatewayProxyResponse, error) {
 
-	email := req.QueryStringParameters{"email"}
+	email := req.QueryStringParameters["email"]
 	if len(email) > 0 {
 		result, err := user.FetchUser(email, tableName, dynaClient)
 		if err != nil {
@@ -34,7 +34,7 @@ func GetUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dyn
 	return apiResponse(http.StatusOK, result)
 }
 
-func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbifac.DynamoDBAPI) (
+func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (
 	*events.APIGatewayProxyResponse, error,
 ) {
 	result, err := user.CreateUser(req, tableName, dynaClient)
@@ -46,7 +46,7 @@ func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 	return apiResponse(http.StatusCreated, result)
 }
 
-func UpdateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbifac.DynamoDBAPI) (
+func UpdateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (
 	*events.APIGatewayProxyResponse, error,
 ) {
 	result, err := user.UpdateUser(req, tableName, dynaClient)
@@ -58,7 +58,7 @@ func UpdateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 	return apiResponse(http.StatusOK, result)
 }
 
-func DeleteUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbifac.DynamoDBAPI) (
+func DeleteUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (
 	*events.APIGatewayProxyResponse, error,
 ) {
 	err := user.DeleteUser(req, tableName, dynaClient)
